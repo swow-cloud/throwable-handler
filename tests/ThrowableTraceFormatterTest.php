@@ -1,12 +1,7 @@
 <?php
-
-/*
- * This file is part of Chevere.
- *
- * (c) Rodolfo Berrios <rodolfo@chevere.org>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+/**
+ * This file is part of Swow-Cloud/Job
+ * @license  https://github.com/serendipity-swow/serendipity-job/blob/master/LICENSE
  */
 
 declare(strict_types=1);
@@ -18,6 +13,10 @@ use Chevere\Trace\TraceDocument;
 use Exception;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 final class ThrowableTraceFormatterTest extends TestCase
 {
     private string $hrLine;
@@ -94,7 +93,7 @@ final class ThrowableTraceFormatterTest extends TestCase
         );
         $expectEntries = [];
         foreach (array_keys($trace) as $pos) {
-            $expect = "#{$pos} ${file}:${line}\n${fqn}${type}${method}()";
+            $expect = "#{$pos} {$file}:{$line}\n{$fqn}{$type}{$method}()";
             $expectEntries[] = $expect;
             $this->assertSame(
                 $expect,

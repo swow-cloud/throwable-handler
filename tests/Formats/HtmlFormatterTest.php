@@ -1,12 +1,7 @@
 <?php
-
-/*
- * This file is part of Chevere.
- *
- * (c) Rodolfo Berrios <rodolfo@chevere.org>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+/**
+ * This file is part of Swow-Cloud/Job
+ * @license  https://github.com/serendipity-swow/serendipity-job/blob/master/LICENSE
  */
 
 declare(strict_types=1);
@@ -17,6 +12,10 @@ use Chevere\ThrowableHandler\Formats\ThrowableHandlerHtmlFormat;
 use Chevere\ThrowableHandler\Formats\ThrowableHandlerPlainFormat;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 final class HtmlFormatterTest extends TestCase
 {
     public function testAgainstPlain(): void
@@ -45,35 +44,35 @@ final class HtmlFormatterTest extends TestCase
         $array = [
             'getItemTemplate' => [
                 [],
-                '<div class="pre pre--stack-entry %cssEvenClass%">#%pos% %fileLine%' . "\n" . '%class%%type%%function%</div>'
+                '<div class="pre pre--stack-entry %cssEvenClass%">#%pos% %fileLine%' . "\n" . '%class%%type%%function%</div>',
             ],
             'getHr' => [
                 [],
-                '<div class="hr"><span>' . str_repeat('-', 60) . '</span></div>'
+                '<div class="hr"><span>' . str_repeat('-', 60) . '</span></div>',
             ],
             'getLineBreak' => [
                 [],
-                "\n<br>\n"
+                "\n<br>\n",
             ],
             'wrapLink' => [
                 ['value'],
-                'value'
+                'value',
             ],
             'wrapHidden' => [
                 ['value'],
-                '<span class="hide">value</span>'
+                '<span class="hide">value</span>',
             ],
             'wrapSectionTitle' => [
                 ['value'],
-                '<div class="title">value</div>'
+                '<div class="title">value</div>',
             ],
             'wrapSectionTitle' => [
                 ['# value'],
-                '<div class="title"><span class="hide">#&nbsp;</span>value</div>'
+                '<div class="title"><span class="hide">#&nbsp;</span>value</div>',
             ],
             'wrapTitle' => [
                 ['value'],
-                '<div class="title title--scream">value</div>'
+                '<div class="title title--scream">value</div>',
             ],
         ];
         foreach ($array as $methodName => $aux) {

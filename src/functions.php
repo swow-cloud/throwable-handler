@@ -1,12 +1,7 @@
 <?php
-
-/*
- * This file is part of Chevere.
- *
- * (c) Rodolfo Berrios <rodolfo@chevere.org>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+/**
+ * This file is part of Swow-Cloud/Job
+ * @license  https://github.com/serendipity-swow/serendipity-job/blob/master/LICENSE
  */
 
 declare(strict_types=1);
@@ -20,11 +15,11 @@ use Chevere\ThrowableHandler\Documents\ThrowableHandlerHtmlDocument;
 use Chevere\ThrowableHandler\Documents\ThrowableHandlerPlainDocument;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerDocumentInterface;
 use Chevere\ThrowableHandler\Interfaces\ThrowableHandlerInterface;
-use function Chevere\Writer\streamFor;
 use Chevere\Writer\StreamWriter;
 use Chevere\Writer\WritersInstance;
 use LogicException;
 use Throwable;
+use function Chevere\Writer\streamFor;
 
 // @codeCoverageIgnoreStart
 
@@ -92,7 +87,7 @@ function handleExceptionAs(ThrowableHandlerDocumentInterface $document): void
     }
     $writer->write($document->__toString() . "\n");
 
-    die(255);
+    exit(255);
 }
 
 function fatalErrorHandler(): void
@@ -107,11 +102,11 @@ function fatalErrorHandler(): void
     restore_exception_handler();
     $handler(
         new ErrorException(
-            message: new Message($error["message"]),
+            message: new Message($error['message']),
             code: 0,
-            severity: $error["type"],
-            filename: $error["file"],
-            lineno: $error["line"]
+            severity: $error['type'],
+            filename: $error['file'],
+            lineno: $error['line']
         )
     );
 }

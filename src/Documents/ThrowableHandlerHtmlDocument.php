@@ -1,12 +1,7 @@
 <?php
-
-/*
- * This file is part of Chevere.
- *
- * (c) Rodolfo Berrios <rodolfo@chevere.org>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+/**
+ * This file is part of Swow-Cloud/Job
+ * @license  https://github.com/serendipity-swow/serendipity-job/blob/master/LICENSE
  */
 
 declare(strict_types=1);
@@ -47,7 +42,7 @@ final class ThrowableHandlerHtmlDocument extends ThrowableHandlerDocument
 
     public function getContent(string $content): string
     {
-        return "<div>${content}</div>";
+        return "<div>{$content}</div>";
     }
 
     public function getSectionTitle(): string
